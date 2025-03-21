@@ -8,6 +8,7 @@
     (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
     (define-key company-active-map (kbd "<ret>") nil))
 
+(setq company-require-match nil)
 
 (add-hook 'after-init-hook 'global-company-mode)
 

@@ -12,6 +12,7 @@
       (evil-scroll-line-to-center (line-number-at-pos)))
 
 (setq evil-want-C-u-scroll t)
+(setq evil-undo-system 'undo-redo)
 
 (require 'evil)
 (evil-mode 1)
@@ -21,6 +22,9 @@
 (define-key evil-insert-state-map (kbd "C-k") nil)
 
 (define-key evil-normal-state-map (kbd "C-p") nil)
+
+(define-key evil-normal-state-map (kbd "r") evil-redo-function)
+(define-key evil-normal-state-map (kbd "C-r") nil)
 
 (define-key evil-motion-state-map (kbd "C-f") nil)
 
