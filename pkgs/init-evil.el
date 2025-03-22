@@ -18,13 +18,14 @@
 (evil-mode 1)
 
 (setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+(setq evil-search-module 'evil-search)
+
 (define-key evil-insert-state-map (kbd "C-j") nil)
 (define-key evil-insert-state-map (kbd "C-k") nil)
 
 (define-key evil-normal-state-map (kbd "C-p") nil)
 
-(define-key evil-normal-state-map (kbd "r") evil-redo-function)
-(define-key evil-normal-state-map (kbd "C-r") nil)
+(define-key evil-normal-state-map (kbd "C-r") evil-redo-function)
 
 (define-key evil-motion-state-map (kbd "C-f") nil)
 

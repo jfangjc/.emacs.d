@@ -16,6 +16,7 @@
 (require 'init-company)
 (require 'init-tramp)
 (require 'init-modeline)
+(require 'init-ibuffer)
 
 (setq inhibit-startup-screen t)
 
@@ -26,6 +27,8 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+(setq-default c-basic-offset 4)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -50,12 +53,5 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-d") 'dired)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(package-selected-packages
-   '(company dracula-theme evil ivy lsp-mode markdown-mode projectile))
- '(tool-bar-mode nil))
+(global-set-key (kbd "C-h") 'previous-buffer)
+(global-set-key (kbd "C-l") 'next-buffer)
