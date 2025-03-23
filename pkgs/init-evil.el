@@ -29,4 +29,6 @@
 
 (define-key evil-motion-state-map (kbd "C-f") nil)
 
+(global-set-key [remap evil-quit] 'kill-buffer-and-window)
+
 (provide 'init-evil)
