@@ -1,6 +1,6 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
 ;;(package-refresh-contents)
@@ -19,6 +19,7 @@
 (require 'init-ibuffer)
 (require 'init-vertico)
 (require 'init-term)
+(require 'init-general)
 
 (setq inhibit-startup-screen t)
 
@@ -31,6 +32,9 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
+
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -66,4 +70,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company dracula-theme evil markdown-mode projectile vertico)))
+    '(company dracula-theme evil general markdown-mode projectile vertico)))
