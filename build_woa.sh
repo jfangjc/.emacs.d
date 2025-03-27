@@ -1,5 +1,23 @@
 # https://gist.github.com/jgbabyn/ce4bf3bc25e781b5733d7e1c25bf988e
-pacman -Su mingw-w64-clang-aarch64-clang mingw-w64-clang-aarch64-ctags mingw-w64-clang-aarch64-freetype mingw-w64-clang-aarch64-gnutls mingw-w64-clang-aarch64-harfbuzz mingw-w64-clang-aarch64-jansson mingw-w64-clang-aarch64-libtree-sitter mingw-w64-clang-aarch64-libwinpthread mingw-w64-clang-aarch64-texinfo mingw-w64-clang-aarch64-xpm-nox mingw-w64-clang-aarch64-zlib mingw-w64-clang-aarch64-autotools mingw-w64-clang-aarch64-cc mingw-w64-clang-aarch64-giflib mingw-w64-clang-aarch64-libjpeg-turbo mingw-w64-clang-aarch64-libpng mingw-w64-clang-aarch64-librsvg mingw-w64-clang-aarch64-libtiff mingw-w64-clang-aarch64-libxml2 patch autoconf autogen make
+pacman -S mingw-w64-clang-aarch64-clang mingw-w64-clang-aarch64-ctags mingw-w64-clang-aarch64-freetype mingw-w64-clang-aarch64-gnutls mingw-w64-clang-aarch64-harfbuzz mingw-w64-clang-aarch64-jansson mingw-w64-clang-aarch64-libtree-sitter mingw-w64-clang-aarch64-libwinpthread mingw-w64-clang-aarch64-texinfo mingw-w64-clang-aarch64-xpm-nox mingw-w64-clang-aarch64-zlib mingw-w64-clang-aarch64-autotools mingw-w64-clang-aarch64-cc mingw-w64-clang-aarch64-giflib mingw-w64-clang-aarch64-libjpeg-turbo mingw-w64-clang-aarch64-libpng mingw-w64-clang-aarch64-librsvg mingw-w64-clang-aarch64-libtiff mingw-w64-clang-aarch64-libxml2 patch autoconf autogen make
+
+pacman -S --needed base-devel \
+  mingw-w64-clang-aarch64-toolchain \
+  mingw-w64-clang-aarch64-xpm-nox \
+  mingw-w64-clang-aarch64-gmp \
+  mingw-w64-clang-aarch64-gnutls \
+  mingw-w64-clang-aarch64-libtiff \
+  mingw-w64-clang-aarch64-giflib \
+  mingw-w64-clang-aarch64-libpng \
+  mingw-w64-clang-aarch64-libjpeg-turbo \
+  mingw-w64-clang-aarch64-librsvg \
+  mingw-w64-clang-aarch64-libwebp \
+  mingw-w64-clang-aarch64-lcms2 \
+  mingw-w64-clang-aarch64-libxml2 \
+  mingw-w64-clang-aarch64-zlib \
+  mingw-w64-clang-aarch64-harfbuzz \
+  mingw-w64-clang-aarch64-sqlite3 \
+  mingw-w64-clang-aarch64-libtree-sitter
 
 mkdir ./bin
 
@@ -16,6 +34,9 @@ patch -Np1 -i ./003-aarch64-fixes.patch
 
 ./autogen.sh
 
+export LDFLAGS="${LDFLAGS} -lpthread"
+
+# Change ./bin to absolute path
 ./configure \
     --prefix=./bin \
     --host="${MINGW_CHOST}" \
@@ -24,6 +45,8 @@ patch -Np1 -i ./003-aarch64-fixes.patch
     --without-dbus \
     --without-compress-install \
     --with-tree-sitter \
+    --with-gnutls \
+    --without-pop
 
 make actual-all -j 8
 make install
@@ -31,4 +54,3 @@ make install
 cd ./bin/lib
 mkdir dll
 cp /clangarm64/bin/*.dll ./dll
-

@@ -1,13 +1,10 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-;;(package-refresh-contents)
-
-(load-theme 'dracula t)
 
 (add-to-list 'load-path (expand-file-name "pkgs" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
 
 (require 'init-evil)
 (require 'init-markdown)
@@ -20,6 +17,11 @@
 (require 'init-vertico)
 (require 'init-term)
 (require 'init-general)
+;;(require 'init-theme)
+
+;;(load-theme 'light t)
+
+(load-theme 'nord t)
 
 (setq inhibit-startup-screen t)
 
@@ -28,13 +30,13 @@
 
 (setq-default display-line-numbers 'relative)
 
-(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
 (setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'insert-tab)
 
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(95 95))
+(add-to-list 'default-frame-alist '(alpha 95 95))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -61,8 +63,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-d") 'dired)
 
-(global-set-key (kbd "C-h") 'previous-buffer)
-(global-set-key (kbd "C-l") 'next-buffer)
+(global-set-key (kbd "C-k") 'previous-buffer)
+(global-set-key (kbd "C-j") 'next-buffer)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -70,4 +72,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-    '(company dracula-theme evil general markdown-mode projectile vertico)))
+   '(company dracula-theme evil general markdown-mode nord-theme
+             projectile vertico)))

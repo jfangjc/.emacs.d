@@ -32,4 +32,7 @@
 (keymap-set vertico-map "C-k" 'vertico-previous)
 (keymap-set vertico-map "C-j" 'vertico-next)
 
+(keymap-set vertico-map "C-u" 'vertico-scroll-down)
+(keymap-set vertico-map "C-d" 'vertico-scroll-up)
+
 (provide 'init-vertico)

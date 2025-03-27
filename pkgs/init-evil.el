@@ -13,12 +13,13 @@
 
 (setq evil-want-C-u-scroll t)
 (setq evil-undo-system 'undo-redo)
+(setq evil-search-module 'evil-search)
 
 (require 'evil)
-(evil-mode 1)
 
 (setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
-(setq evil-search-module 'evil-search)
+
+(evil-mode 1)
 
 (define-key evil-insert-state-map (kbd "C-j") nil)
 (define-key evil-insert-state-map (kbd "C-k") nil)
