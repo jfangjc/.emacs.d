@@ -4,7 +4,6 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "pkgs" user-emacs-directory))
-(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
 
 (require 'init-evil)
 (require 'init-markdown)
@@ -12,16 +11,12 @@
 (require 'init-eglot)
 (require 'init-company)
 (require 'init-tramp)
-(require 'init-modeline)
 (require 'init-ibuffer)
 (require 'init-vertico)
 (require 'init-term)
 (require 'init-general)
-;;(require 'init-theme)
-
-;;(load-theme 'light t)
-
-(load-theme 'nord t)
+(require 'init-theme)
+(require 'init-modeline)
 
 (setq inhibit-startup-screen t)
 
@@ -72,5 +67,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company dracula-theme evil general markdown-mode nord-theme
+   '(company dracula-theme evil general markdown-mode material-theme
              projectile vertico)))

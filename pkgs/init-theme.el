@@ -1,6 +1,6 @@
-;;(unless (package-installed-p 'nord-theme)
-;;  (package-install 'nord-theme))
+(unless (package-installed-p 'material-theme)
+  (package-install 'material-theme))
 
-(load-theme 'my-theme t)
+(load-theme 'material-light t)
 
 (provide 'init-theme)
