@@ -8,6 +8,12 @@
 
 (my-leader-def
   :keymaps 'normal
-  "f" 'dired)
+  "f" 'projectile-find-file)
+(my-leader-def
+  :keymaps 'normal
+  "b" 'ibuffer)
+(my-leader-def
+  :keymaps 'normal
+  "d" 'dired)
 
 (provide 'init-general)

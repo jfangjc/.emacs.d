@@ -21,8 +21,7 @@
 ))
 
 (set-face-attribute 'header-line nil
-    :background "gray60"
-    :box '(:line-width 6 :color "gray60" :style nil))
+     :inherit 'mode-line)
 
 (make-face 'header-line-project-face)
 (make-face 'header-line-filename-face)
@@ -30,14 +29,13 @@
 (make-face 'header-line-mode-face)
 
 (set-face-attribute 'header-line-project-face nil
-    :foreground "gray20")
+    :inherit 'mode-line-emphasis)
 (set-face-attribute 'header-line-filename-face nil
-    :foreground "#eab700"
-    :weight 'bold)
+    :foreground "#eab700" :weight 'bold)
 (set-face-attribute 'header-line-position-face nil
-    :foreground "gray20")
+    :inherit 'mode-line-inactive)
 (set-face-attribute 'header-line-mode-face nil
-    :foreground "gray20")
+    :inherit 'mode-line-emphasis)
 
 (setq-default mode-line-format nil)
 

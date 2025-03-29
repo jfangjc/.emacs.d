@@ -6,6 +6,7 @@
 (add-to-list 'load-path (expand-file-name "pkgs" user-emacs-directory))
 
 (require 'init-evil)
+(require 'init-magit)
 (require 'init-markdown)
 (require 'init-projectile)
 (require 'init-eglot)
@@ -15,6 +16,7 @@
 (require 'init-vertico)
 (require 'init-term)
 (require 'init-general)
+
 (require 'init-theme)
 (require 'init-modeline)
 
@@ -30,11 +32,12 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'insert-tab)
 
-(set-frame-parameter (selected-frame) 'alpha '(95 95))
-(add-to-list 'default-frame-alist '(alpha 95 95))
+;;(set-frame-parameter (selected-frame) 'alpha '(95 95))
+;;(add-to-list 'default-frame-alist '(alpha 95 95))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (tooltip-mode -1)
 (column-number-mode t)
 (line-number-mode t)
@@ -42,6 +45,8 @@
 (setq dired-kill-when-opening-new-dired-buffer t)
 
 (setq ring-bell-function 'ignore)
+
+(setq make-backup-files nil) 
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -67,5 +72,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(company dracula-theme evil general markdown-mode material-theme
-             projectile vertico)))
+   '(apropospriate-theme catppuccin catppuccin-theme company
+                         dracula-theme evil evil-collection general
+                         magit markdown-mode material-theme projectile
+                         vertico)))
