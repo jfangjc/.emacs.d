@@ -1,10 +1,10 @@
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
 
-(setq markdown-toggle-inline-images t)
+(setq markdown-enable-math t)
+(setq markdown-split-window-direction 'right)
 
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+(autoload 'markdown-mode "markdown-mode" t)
 (add-to-list 'auto-mode-alist
              '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
 

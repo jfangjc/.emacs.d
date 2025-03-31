@@ -19,6 +19,7 @@
 (setq evil-search-module 'evil-search)
 (setq evil-want-keybinding nil)
 (setq evil-want-integration t)
+(setq evil-respect-visual-line-mode t)
 
 (require 'evil)
 

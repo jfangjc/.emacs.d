@@ -20,12 +20,17 @@
 (require 'init-theme)
 (require 'init-modeline)
 
+(set-default-coding-systems 'utf-8)
+
 (setq inhibit-startup-screen t)
 
-(setq initial-scratch-message "")
-(setq initial-major-mode 'fundamental-mode)
+(setq initial-buffer-choice (expand-file-name "~"))
+;;(setq initial-scratch-message "")
+;;(setq initial-major-mode 'fundamental-mode)
 
-(setq-default display-line-numbers 'relative)
+(global-visual-line-mode 1)
+
+(setq-default display-line-numbers 'visual)
 
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
@@ -63,6 +68,12 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-d") 'dired)
 
+(eval-after-load "org" '(progn
+(define-key org-mode-map    (kbd "C-j") 'nil))  )
+
+(global-set-key (kbd "C-k") 'nil)
+(global-set-key (kbd "C-j") 'nil)
+    
 (global-set-key (kbd "C-k") 'previous-buffer)
 (global-set-key (kbd "C-j") 'next-buffer)
 
