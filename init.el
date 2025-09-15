@@ -19,6 +19,8 @@
 (require 'init-theme)
 (require 'init-modeline)
 
+(when (eq system-type 'windows-nt)
+  (prefer-coding-system 'utf-8-unix))
 (set-default-coding-systems 'utf-8)
 
 ;;(setq initial-major-mode 'fundamental-mode)
@@ -27,7 +29,7 @@
 
 (setq initial-buffer-choice (expand-file-name "."))
 
-(setq-default message-log-max nil)
+;;(setq-default message-log-max nil)
 (setq initial-scratch-message "")
 
 (add-hook 'emacs-startup-hook (lambda ()

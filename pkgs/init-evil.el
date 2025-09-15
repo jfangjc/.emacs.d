@@ -4,16 +4,6 @@
 (unless (package-installed-p 'evil-collection)
   (package-install 'evil-collection))
 
-;; C-u zz
-(defadvice evil-scroll-up
-      (after advice-for-evil-scroll-up activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
-
-;; C-d zz
-(defadvice evil-scroll-down
-      (after advice-for-evil-scroll-down activate)
-      (evil-scroll-line-to-center (line-number-at-pos)))
-
 (setq evil-want-C-u-scroll t)
 (setq evil-undo-system 'undo-redo)
 (setq evil-search-module 'evil-search)
@@ -33,6 +23,16 @@
 (define-key evil-normal-state-map (kbd "C-r") evil-redo-function)
 
 (define-key evil-motion-state-map (kbd "C-f") nil)
+
+(define-key evil-normal-state-map (kbd "C-d") (lambda ()
+                                           (interactive)
+                                           (evil-scroll-up 0)
+                                           (evil-scroll-line-to-center (line-number-at-pos))))
+
+(define-key evil-normal-state-map (kbd "C-d") (lambda ()
+                                           (interactive)
+                                           (evil-scroll-down 0)
+                                           (evil-scroll-line-to-center (line-number-at-pos))))
 
 (global-set-key [remap evil-quit] 'kill-buffer-and-window)
 
