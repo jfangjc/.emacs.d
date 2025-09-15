@@ -6,7 +6,6 @@
 (add-to-list 'load-path (expand-file-name "pkgs" user-emacs-directory))
 
 (require 'init-evil)
-(require 'init-magit)
 (require 'init-markdown)
 (require 'init-projectile)
 (require 'init-eglot)
@@ -22,11 +21,20 @@
 
 (set-default-coding-systems 'utf-8)
 
+;;(setq initial-major-mode 'fundamental-mode)
+
 (setq inhibit-startup-screen t)
 
-(setq initial-buffer-choice (expand-file-name "~"))
-;;(setq initial-scratch-message "")
-;;(setq initial-major-mode 'fundamental-mode)
+(setq initial-buffer-choice (expand-file-name "."))
+
+(setq-default message-log-max nil)
+(setq initial-scratch-message "")
+
+(add-hook 'emacs-startup-hook (lambda ()
+                              (when (get-buffer "*scratch*")
+                                (kill-buffer "*scratch*"))
+                              (when (get-buffer "*Messages*")
+                                (kill-buffer "*Messages*"))))
 
 (global-visual-line-mode 1)
 
@@ -37,8 +45,8 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'insert-tab)
 
-;;(set-frame-parameter (selected-frame) 'alpha '(95 95))
-;;(add-to-list 'default-frame-alist '(alpha 95 95))
+(set-frame-parameter (selected-frame) 'alpha '(97 97))
+(add-to-list 'default-frame-alist '(alpha 97 97))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -83,7 +91,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(apropospriate-theme catppuccin catppuccin-theme company
-                         dracula-theme evil evil-collection general
-                         magit markdown-mode material-theme projectile
-                         vertico)))
+    '(apropospriate-theme atom-one-dark-theme company evil-collection
+                          general markdown-mode projectile vertico)))
+
