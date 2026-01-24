@@ -3,7 +3,7 @@
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 (add-hook 'rust-mode-hook 'eglot-ensure)
-(add-hook 'typescript-mode 'eglot-ensure)
+(add-hook 'typescript-ts-mode 'eglot-ensure)
 
 (provide 'init-eglot)
 

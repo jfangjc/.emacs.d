@@ -41,6 +41,7 @@ flycheck_*.el
 # projectiles files
 .projectile
 *.eld
+projects
 
 # directory configuration
 .dir-locals.el
@@ -48,8 +49,12 @@ flycheck_*.el
 # network security
 /network-security.data
 
+# tree-sitter
+./tree-sitter
+
 history
 
-transient    
+transient
 
 org-persist
+

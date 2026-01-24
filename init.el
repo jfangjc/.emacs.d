@@ -15,21 +15,26 @@
 (require 'init-vertico)
 (require 'init-term)
 (require 'init-general)
+(require 'init-ultrascroll)
 
 (require 'init-theme)
-(require 'init-modeline)
+;; (require 'init-modeline)
 
-(when (eq system-type 'windows-nt)
-  (prefer-coding-system 'utf-8-unix))
+(set-face-background 'header-line nano-light-foreground)
+(set-face-foreground 'header-line nano-light-background)
+
+(setq-default header-line-format mode-line-format)
+(setq-default mode-line-format nil)
+
 (set-default-coding-systems 'utf-8)
 
-;;(setq initial-major-mode 'fundamental-mode)
+(setq initial-major-mode 'fundamental-mode)
 
 (setq inhibit-startup-screen t)
 
 (setq initial-buffer-choice (expand-file-name "."))
 
-;;(setq-default message-log-max nil)
+(setq-default message-log-max nil)
 (setq initial-scratch-message "")
 
 (add-hook 'emacs-startup-hook (lambda ()
@@ -47,8 +52,9 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'insert-tab)
 
-(set-frame-parameter (selected-frame) 'alpha '(97 97))
-(add-to-list 'default-frame-alist '(alpha 97 97))
+;; (set-frame-parameter (selected-frame) 'alpha '(95 95))
+;; (add-to-list 'default-frame-alist '(alpha 95 95))
+;; (add-to-list 'default-frame-alist '(alpha-background . 80))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -68,7 +74,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Cascadia Code" :foundry "outline" :slant normal :weight regular :height 161 :width normal)))))
+ '(default ((t (:family "Cascadia Code" :foundry "outline" :slant normal :weight regular :height 140 :width normal)))))
 
 ;; maximized on launch
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -93,6 +99,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-    '(apropospriate-theme atom-one-dark-theme company evil-collection
-                          general markdown-mode projectile vertico)))
+   '(apropospriate-theme atom-one-dark-theme company evil-collection
+                         general markdown-mode nano-theme projectile
+                         ultra-scroll vertico))
+ '(package-vc-selected-packages
+   '((nano-theme :url "https://github.com/rougier/nano-theme.git"))))
 
