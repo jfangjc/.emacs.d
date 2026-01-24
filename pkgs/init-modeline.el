@@ -1,4 +1,7 @@
-(setq-default header-line-format nil)
+(set-face-background 'header-line nano-light-foreground)
+(set-face-foreground 'header-line nano-light-background)
+
+(setq-default header-line-format mode-line-format)
 
 (setq-default header-line-format (list
     '(:eval (propertize (format " %s " (projectile-project-name)) 'face 'header-line-project-face))
@@ -33,7 +36,7 @@
 (set-face-attribute 'header-line-filename-face nil
     :foreground "#eab700" :weight 'bold)
 (set-face-attribute 'header-line-position-face nil
-    :inherit 'mode-line-inactive)
+    :inherit 'mode-line-emphasis)
 (set-face-attribute 'header-line-mode-face nil
     :inherit 'mode-line-emphasis)
 

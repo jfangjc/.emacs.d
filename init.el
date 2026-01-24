@@ -18,13 +18,7 @@
 (require 'init-ultrascroll)
 
 (require 'init-theme)
-;; (require 'init-modeline)
-
-(set-face-background 'header-line nano-light-foreground)
-(set-face-foreground 'header-line nano-light-background)
-
-(setq-default header-line-format mode-line-format)
-(setq-default mode-line-format nil)
+(require 'init-modeline)
 
 (set-default-coding-systems 'utf-8)
 
