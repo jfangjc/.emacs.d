@@ -18,7 +18,13 @@
 (require 'init-ultrascroll)
 
 (require 'init-theme)
-(require 'init-modeline)
+;; (require 'init-modeline)
+
+(set-face-background 'header-line nano-light-foreground)
+(set-face-foreground 'header-line nano-light-background)
+
+(setq-default header-line-format mode-line-format)
+(setq-default mode-line-format nil)
 
 (set-default-coding-systems 'utf-8)
 
@@ -78,8 +84,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-d") 'dired)
 
-(eval-after-load "org" '(progn
-(define-key org-mode-map    (kbd "C-j") 'nil))  )
+(eval-after-load "org" '(progn(define-key org-mode-map (kbd "C-j") 'nil)))
 
 (global-set-key (kbd "C-k") 'nil)
 (global-set-key (kbd "C-j") 'nil)
@@ -87,15 +92,15 @@
 (global-set-key (kbd "C-k") 'previous-buffer)
 (global-set-key (kbd "C-j") 'next-buffer)
 
+(global-set-key (kbd "C-p") 'nil)
+(global-set-key (kbd "C-p") 'execute-extended-command)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(apropospriate-theme atom-one-dark-theme company evil-collection
-                         general markdown-mode nano-theme projectile
-                         ultra-scroll vertico))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
    '((nano-theme :url "https://github.com/rougier/nano-theme.git"))))
 
