@@ -6,30 +6,36 @@
 (general-create-definer leader-def
   :prefix "SPC")
 
-(if (projectile-project-p)
-    (leader-def
-        :keymaps 'normal
-        "f" 'projectile-find-file)
-    (leader-def
-        :keymaps 'normal
-        "b" 'projectile-ibuffer)
-    (leader-def
-        :keymaps 'normal
-        "d" 'projectile-dired)
- 
-(leader-def
-    :keymaps 'normal
-    "f" 'find-file)
-(leader-def
-    :keymaps 'normal
-    "b" 'ibuffer)
-(leader-def
-    :keymaps 'normal
-    "d" 'dired)
-)
+(defun my/find-file-dwim ()
+  (interactive)
+  (if (projectile-project-p)
+      (call-interactively #'projectile-find-file)
+    (call-interactively #'find-file)))
+
+(defun my/ibuffer-dwim ()
+  (interactive)
+  (if (projectile-project-p)
+      (call-interactively #'projectile-ibuffer)
+    (call-interactively #'ibuffer)))
+
+(defun my/dired-dwim ()
+  (interactive)
+  (if (projectile-project-p)
+      (call-interactively #'projectile-dired)
+    (call-interactively #'dired)))
 
 (leader-def
-    :keymaps 'normal
-    "p" 'projectile-switch-project)
+  :keymaps 'normal
+  "f" #'my/find-file-dwim
+  "b" #'my/ibuffer-dwim
+  "d" #'my/dired-dwim
+  "p" #'projectile-switch-project
+  "a" #'my/pin-add-file
+  "s" #'my/pin-toggle)
+
+(general-define-key
+ :keymaps '(normal insert emacs)
+ "C-j" #'my/pin-next-file
+ "C-k" #'my/pin-previous-file)
 
 (provide 'init-general)

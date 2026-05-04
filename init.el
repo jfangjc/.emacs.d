@@ -104,3 +104,6 @@
  '(package-vc-selected-packages
    '((nano-theme :url "https://github.com/rougier/nano-theme.git"))))
 
+(defun q ()
+  (interactive)
+  (save-buffers-kill-terminal))
