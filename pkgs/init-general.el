@@ -29,7 +29,7 @@
   "f" #'my/find-file-dwim
   "b" #'my/ibuffer-dwim
   "d" #'my/dired-dwim
-  "p" #'projectile-switch-project
+  "p" #'projectile-switch-known-directory
   "a" #'my/pin-add-file
   "s" #'my/pin-toggle)
 

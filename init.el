@@ -95,6 +95,14 @@
 (global-set-key (kbd "C-p") 'nil)
 (global-set-key (kbd "C-p") 'execute-extended-command)
 
+(global-set-key (kbd "C-o") 'nil)
+(global-set-key (kbd "C-p") 'execute-extended-command)
+
+(global-set-key (kbd "C-e") 'nil)
+(global-set-key (kbd "C-p") 'execute-extended-command)
+
+;; (global-set-key (kbd "C-/") 'nil)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
