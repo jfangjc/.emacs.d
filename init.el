@@ -20,8 +20,8 @@
 (require 'init-theme)
 ;; (require 'init-modeline)
 
-(set-face-background 'header-line nano-light-foreground)
-(set-face-foreground 'header-line nano-light-background)
+(set-face-background 'header-line (face-foreground 'default nil 'default))
+(set-face-foreground 'header-line (face-background 'default nil 'default))
 
 (setq-default header-line-format mode-line-format)
 (setq-default mode-line-format nil)
@@ -67,7 +67,7 @@
 
 (setq ring-bell-function 'ignore)
 
-(setq make-backup-files nil) 
+(setq make-backup-files nil)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -88,7 +88,7 @@
 
 (global-set-key (kbd "C-k") 'nil)
 (global-set-key (kbd "C-j") 'nil)
-    
+
 (global-set-key (kbd "C-k") 'previous-buffer)
 (global-set-key (kbd "C-j") 'next-buffer)
 
@@ -110,7 +110,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages nil)
  '(package-vc-selected-packages
-   '((nano-theme :url "https://github.com/rougier/nano-theme.git"))))
+   '((rose-pine-emacs :url
+                      "https://github.com/thongpv87/rose-pine-emacs.git"))))
 
 (defun q ()
   (interactive)
