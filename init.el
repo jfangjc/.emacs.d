@@ -62,6 +62,10 @@
 (tooltip-mode -1)
 (column-number-mode t)
 (line-number-mode t)
+(blink-cursor-mode -1)
+
+(setq visible-cursor nil)
+(setq cursor-in-non-selected-windows nil)
 
 (setq dired-kill-when-opening-new-dired-buffer t)
 
