@@ -15,6 +15,8 @@
 
 (evil-mode 1)
 
+(evil-ex-define-cmd "W" #'evil-write)
+
 (with-eval-after-load 'ibuffer
   (evil-define-key 'normal my/pin-mode-map
     (kbd "<escape>") #'my/pin-quit

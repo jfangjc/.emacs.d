@@ -1,7 +1,6 @@
 (unless (package-installed-p 'company)
   (package-install 'company))
 
-(require 'company)
 (with-eval-after-load 'company
     (define-key company-active-map (kbd "C-j") 'company-select-next)
     (define-key company-active-map (kbd "C-k") 'company-select-previous)
@@ -13,6 +12,7 @@
 
 (setq company-require-match nil)
 
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'prog-mode-hook #'company-mode)
+(add-hook 'text-mode-hook #'company-mode)
 
 (provide 'init-company)

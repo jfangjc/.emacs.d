@@ -29,6 +29,13 @@
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles basic partial-completion orderless)))))
+
 (keymap-set vertico-map "C-k" 'vertico-previous)
 (keymap-set vertico-map "C-j" 'vertico-next)
 

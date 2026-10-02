@@ -20,9 +20,9 @@
 
 (defun my/dired-dwim ()
   (interactive)
-  (if (projectile-project-p)
-      (call-interactively #'projectile-dired)
-    (call-interactively #'dired)))
+  (dired (or (and buffer-file-name
+                  (file-name-directory buffer-file-name))
+             default-directory)))
 
 (leader-def
   :keymaps 'normal
