@@ -60,5 +60,5 @@ org-persist
 
 eln-cache
 
-./package-quickstart.el
+package-quickstart.el
 

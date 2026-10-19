@@ -19,9 +19,6 @@
 (require 'init-theme)
 ;; (require 'init-modeline)
 
-(set-face-background 'header-line (face-foreground 'default nil 'default))
-(set-face-foreground 'header-line (face-background 'default nil 'default))
-
 (setq-default header-line-format mode-line-format)
 (setq-default mode-line-format nil)
 
@@ -53,10 +50,11 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'insert-tab)
 
-;; (set-frame-parameter (selected-frame) 'alpha '(95 95))
-;; (add-to-list 'default-frame-alist '(alpha 95 95))
-(set-frame-parameter nil 'alpha-background 75)
-(add-to-list 'default-frame-alist '(alpha-background . 75))
+;; Match foot's 76% background opacity and 11 px padding.
+(set-frame-parameter nil 'alpha-background 76)
+(add-to-list 'default-frame-alist '(alpha-background . 76))
+(set-frame-parameter nil 'internal-border-width 11)
+(add-to-list 'default-frame-alist '(internal-border-width . 11))
 (add-to-list 'default-frame-alist '(undecorated . t))
 
 (setq frame-resize-pixelwise t)
@@ -69,7 +67,8 @@
 (tooltip-mode -1)
 (column-number-mode t)
 (line-number-mode t)
-(blink-cursor-mode -1)
+(setq-default cursor-type 'box)
+(blink-cursor-mode 1)
 (global-auto-revert-mode 1)
 
 (setq visible-cursor nil)
